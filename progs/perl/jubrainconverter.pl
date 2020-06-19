@@ -1,4 +1,4 @@
-#!/Applications/XAMPP/xamppfiles/bin/perl
+#!/opt/local/bin/perl
 
 ### >>>
 use strict;
