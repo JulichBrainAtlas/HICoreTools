@@ -17,6 +17,7 @@ git clone https://github.com/JulichBrainAtlas/HICoreTools
 
 ## Dependencies
 * ImageMagick
+* Insight Toolkit (ITK)
 
 ## Versioning
 1.0.9 alpha
