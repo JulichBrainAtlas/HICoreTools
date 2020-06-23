@@ -16,6 +16,7 @@ git clone https://github.com/JulichBrainAtlas/HICoreTools
 ## Usage
 
 ## Dependencies
+* Some non-standard Perl modules
 * ImageMagick
 * Insight Toolkit (ITK)
 
@@ -27,8 +28,6 @@ git clone https://github.com/JulichBrainAtlas/HICoreTools
 
 ## Acknowledgments
 * Prof. Dr. Katrin Amunts
-
-## Reference
 
 <!-- ## License
 
