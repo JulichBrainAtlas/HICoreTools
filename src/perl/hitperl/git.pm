@@ -42,6 +42,7 @@ sub getGITRepostitoryRemoteVersion {
  my $repos = shift;
  my $result = _getConsoleCommandResult("getGITRepostitoryRemoteVersion","git ls-remote ".$repos);
  my @lines = split(/\n/,$result);
+ return "FATAL ERROR: Repository not found" if ( $lines[0] =~ m/^remote/i );
  my $commitId = (split(/\t/,$lines[0]))[0];
  return $commitId;
 }
@@ -71,8 +72,12 @@ sub checkGITRepositoryDependencies {
      my $reposname = $elements[0];
      my $commitId = $elements[1];
      my $rcommitId = getGITRepostitoryRemoteVersion($reposname);
-     my $isNotUpToDate = ( $commitId eq $rcommitId )?0:1;
-     $results{$reposname} = $rcommitId if ( $isNotUpToDate );
+     if ( $rcommitId =~ m/FATAL/ ) {
+      $results{$reposname} = $rcommitId;
+     } else {
+      my $isNotUpToDate = ( $commitId eq $rcommitId )?0:1;
+      $results{$reposname} = "Current version is ".$rcommitId if ( $isNotUpToDate );
+     }
     }
    }
   close(FPin);
